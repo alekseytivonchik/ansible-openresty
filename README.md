@@ -1,5 +1,4 @@
-# Ansible playbook
-### Install OpenResty from repo on Debian/Ubuntu servers, add requared modules.
+# Install OpenResty from repo on Debian/Ubuntu servers, add custom modules.
 
 ## How to
 Recommends
