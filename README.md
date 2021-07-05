@@ -2,6 +2,11 @@
 ### Install OpenResty from repo on Debian/Ubuntu servers, add requared modules.
 
 ## How to
+Recommends
+```yaml
+ansible: 2.9.14
+```
+
 Run role "install":
 ```bash
 ansible-playbook play.yaml -i hosts.ini --tags install
