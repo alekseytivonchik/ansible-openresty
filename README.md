@@ -1,14 +1,15 @@
-# Install OpenResty from repo on Debian/Ubuntu servers, add custom modules.
+# Ansible Roles: OpenResty & Filebeat
 
-## How to
-Recommends
+## Recommends
 ```yaml
 ansible: 2.9.14
 ```
-
-Run role "install":
+## Usage
+### Openresty
+---
+Run role "openresty-repo":
 ```bash
-ansible-playbook play.yaml -i hosts.ini --tags install
+ansible-playbook play.yaml -i inventory/hosts.ini --tags openresty-repo
 ```
 After successfull install packages, check OpenResty release on destenation server(s):
 ```bash
@@ -33,5 +34,12 @@ nginx_custom_modules: "-j2 ..."
 
 Run add modules roles:
 ```bash
-ansible-playbook play.yaml -i hosts.ini --tags download,configure
+ansible-playbook play.yaml -i inventory/hosts.ini --tags openresty-modules
+```
+
+### Filebeat
+---
+Run role "filebeat":
+```bash
+ansible-playbook play.yaml -i inventory/hosts.ini --tags openresty-modules
 ```

@@ -1,4 +1,20 @@
 ---
+# Download OpenResty source code
+- name: Downloading OpenResty sources
+  get_url:
+    url: "{{ nginx_tarball_url }}"
+    dest: "/tmp/{{ nginx_version }}.tar.gz"
+  register: nginx_source
+
+- name: Unpacking OpenResty
+  unarchive:
+    copy: no
+    dest: /tmp/
+    src: "{{ nginx_source.dest }}"
+  when: nginx_source.changed
+  register: nginx_source_unpack
+
+# Configuring OpenResty source with custom modules
 - name: Configuring OpenResty source with custom modules
   become: yes
   shell: "./configure {{ nginx_custom_modules }}"
