@@ -18,7 +18,7 @@ ssh [user]@[host] openresty -V
 ```bash
 nginx version: openresty/1.19.3.2
 ```
-Befor add custom modules, make shure that installed version on host equail the variable value *nginx_version*. All variables could be change in *play.yaml*:
+Befor add custom modules, make shure that installed version on host equail the variable value *nginx_version*. OpenResty variables could be change in *inventory/host_vars/main.yaml*:
 
 ```yaml
 nginx_version: openresty-1.19.3.2
@@ -41,5 +41,10 @@ ansible-playbook play.yaml -i inventory/hosts.ini --tags openresty-modules
 ---
 Run role "filebeat":
 ```bash
-ansible-playbook play.yaml -i inventory/hosts.ini --tags openresty-modules
+ansible-playbook play.yaml -i inventory/hosts.ini --tags filebeat
 ```
+#### Customize:
+
+Filebeat's variables in *roles/filebeat/defaults/main.yml.*
+
+Filebeat's configs in *roles/filebeat/templates/filebeat.yml.j2*
