@@ -2,6 +2,7 @@
 - name: OpenResty bootstrap
   hosts: proxy
   any_errors_fatal: false
+  become: yes
   # gather_facts: no
   # delegate_to: localhost
 
