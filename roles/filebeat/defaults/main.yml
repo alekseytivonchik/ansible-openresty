@@ -4,7 +4,7 @@ filebeat_package: filebeat
 filebeat_package_state: present
 
 filebeat_create_config: true
-filebeat_template: "filebeat.yml.j2"
+filebeat_template: "filebeat.yml"
 
 filebeat_inputs:
   - type: log
