@@ -22,7 +22,6 @@ List of modules available in *roles/openresty-source/defaults/main.yaml*:
 nginx_custom_modules: "-j2 ..."
 ```
 ### Filebeat
----
 Run role "filebeat":
 ```bash
 ansible-playbook play.yaml -i inventory/hosts.ini --tags filebeat-install
