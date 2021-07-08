@@ -4,13 +4,9 @@
   any_errors_fatal: false
   become: yes
   gather_facts: no
-  # delegate_to: localhost
 
   roles:
-# Install OpenResty from repo
-    - role: openresty-repo
-      tags: resty-repo-install
-# Download source code release
+# Install OpenResty from source
     - role: openresty-source
       tags: resty-source-install
 # Configure and install custom module

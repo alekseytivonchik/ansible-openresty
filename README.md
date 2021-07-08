@@ -1,32 +1,21 @@
-# Ansible Roles: OpenResty & Filebeat
-
-## Recommends
-```yaml
-ansible: 2.9.14
-```
+# Install OpenResty & Filebeat via Ansible
 ## Installation
-### Openresty install from source
-Run *resty-source.yaml* 
+### OpenResty
 ```bash
-ansible-playbook resty-source.yaml -i hosts.ini
-```
-OpenResty variables could be change in *roles/openresty-source/defaults/main.yaml*
-
-### Openresty install from repo
-Run role "openresty-repo":
-```bash
-ansible-playbook play.yaml -i hosts.ini --tags resty-repo-install
-```
-List of modules available in *roles/openresty-source/defaults/main.yaml*:
-```yaml
-nginx_custom_modules: "-j2 ..."
+ansible-playbook resty-source.yaml -i hosts.ini --ask-become-pass
 ```
 ### Filebeat
-Run role "filebeat":
 ```bash
-ansible-playbook play.yaml -i inventory/hosts.ini --tags filebeat-install
+ansible-playbook fb.yaml -i hosts.ini --ask-become-pass
 ```
-#### Customize:
-Filebeat's variables in *roles/filebeat/defaults/main.yml.*
+### All
+```bash
+ansible-playbook play.yaml -i hosts.ini --ask-become-pass
+```
+## Configuration
+### OpenResty
+All variables could be customize in *proxy-bootstrap\ansible\roles\openresty-source\defaults\main.yaml*
+### Filebeat
+All variables could be customize in *proxy-bootstrap\ansible\roles\filebeat\defaults\main.yml*
 
-Filebeat's config in *roles/filebeat/templates/filebeat.yml.j2*
+Config file *proxy-bootstrap\ansible\roles\filebeat\templates\filebeat.yml* isn't template and don't include variables from *defaults\main.yml*
